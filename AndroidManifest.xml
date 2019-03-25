@@ -51,6 +51,12 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+        <activity android:name=".Console_ncr" android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="console_ncr"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
 
     </application>
 

@@ -207,6 +207,33 @@ public class Display_program extends Activity {
                     "}");
         }
 
+        if("P11".equals(program_num)) {
+            display_program_number.setText("PROGRAM 6");
+            display.setText("#include <stdio.h>\n" +
+                    "\n" +
+                    "int fact(int n)\n" +
+                    "{\n" +
+                    "    if (n >= 1)\n" +
+                    "        return n*fact(n-1);\n" +
+                    "    else\n" +
+                    "        return 1;\n" +
+                    "}\n" +
+                    "\n" +
+                    "void main()\n" +
+                    "{\n" +
+                    " int n,r,ncr;\n" +
+                    "\n" +
+                    "  \tprintf(\"Enter n\\n\");\n" +
+                    "  \tscanf(\"%d\",&n);\n" +
+                    "  \tprintf(\"Enter r\\n\");\n" +
+                    "  \tscanf(\"%d\",&r);\n" +
+                    "  \tncr=fact(n)/(fact(r)*fact(n-r));\n" +
+                    "  \tprintf(\"Value of %dC%d = %d\\n\",n,r,ncr);\n" +
+                    "}\n" +
+                    "\n" +
+                    "\n");
+        }
+
         execute.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -228,6 +255,10 @@ public class Display_program extends Activity {
                 }
                 else if("P5".equals(program_num)) {
                     Intent intent = new Intent(Display_program.this, Console_taylors.class);
+                    startActivity(intent);
+                }
+                else if("P11".equals(program_num)) {
+                    Intent intent = new Intent(Display_program.this, Console_ncr.class);
                     startActivity(intent);
                 }
             }
