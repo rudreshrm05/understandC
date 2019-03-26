@@ -207,6 +207,49 @@ public class Display_program extends Activity {
                     "}");
         }
 
+        if("P8".equals(program_num)) {
+            display_program_number.setText("PROGRAM 8");
+            display.setText("#include <stdio.h>\n" +
+                    "#include <string.h>\n" +
+                    "void main()\n" +
+                    "{\n" +
+                    " int i,n,low,high,mid;\n" +
+                    " char a[50][50],key[20];\n" +
+                    " printf(\"enter the number of names to be added\\n\");\n" +
+                    " scanf(\"%d\",&n);\n" +
+                    " printf(\"enter the name in ascending order\\n\");\n" +
+                    " for(i=0;i<=n-1;i++)\n" +
+                    " {\n" +
+                    " scanf(\"%s\",&a[i]);\n" +
+                    " }\n" +
+                    " printf(\"\\n\");\n" +
+                    " printf(\"enter the name to be searched\\n\");\n" +
+                    " scanf(\"%s\",&key);\n" +
+                    " low=0;\n" +
+                    " high=n-1;\n" +
+                    " while(low<=high)\n" +
+                    " {\n" +
+                    " mid=(low+high)/2;\n" +
+                    " if (strcmp(key,a[mid])==0)\n" +
+                    " {\n" +
+                    " printf(\"key found at the position %d\\n\",mid+1);\n" +
+                    "        exit(0);\n" +
+                    " }\n" +
+                    " else if(strcmp(key,a[mid])>0)\n" +
+                    " {\n" +
+                    " high=high;\n" +
+                    " low=mid+1;\n" +
+                    " }\n" +
+                    " else\n" +
+                    " {\n" +
+                    " low=low;\n" +
+                    " high=mid-1;\n" +
+                    " }\n" +
+                    " }\n" +
+                    " printf(\"name not found\\n\");\n" +
+                    " }\n");
+        }
+
         if("P9".equals(program_num)) {
             display_program_number.setText("PROGRAM 9");
             display.setText("#include <stdio.h>\n" +
@@ -304,6 +347,10 @@ public class Display_program extends Activity {
                 }
                 else if("P5".equals(program_num)) {
                     Intent intent = new Intent(Display_program.this, Console_taylors.class);
+                    startActivity(intent);
+                }
+                else if("P8".equals(program_num)) {
+                    Intent intent = new Intent(Display_program.this, Console_binary.class);
                     startActivity(intent);
                 }
                 else if("P9".equals(program_num)) {
