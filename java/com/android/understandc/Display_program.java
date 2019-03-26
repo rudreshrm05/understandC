@@ -207,8 +207,57 @@ public class Display_program extends Activity {
                     "}");
         }
 
+        if("P9".equals(program_num)) {
+            display_program_number.setText("PROGRAM 9");
+            display.setText("#include <stdio.h>\n" +
+                    "void main()\n" +
+                    "{\n" +
+                    "int c=0, i,vowels=0, consonants=0;\n" +
+                    "char s1[100], s2[100];\n" +
+                    "\n" +
+                    "printf(\"Enter string s1: \");\n" +
+                    "gets(s1);\n" +
+                    "\n" +
+                    "printf(\"What to do?\\n1.String copy\\n2.count vowels and consonants\\n\");\n" +
+                    "scanf(\"%d\",&c);\n" +
+                    "\n" +
+                    "\n" +
+                    "switch(c){\n" +
+                    "    case 1:\n" +
+                    "\n" +
+                    "        for(i = 0; s1[i] != '\\0'; ++i)\n" +
+                    "        {\n" +
+                    "            s2[i] = s1[i];\n" +
+                    "        }\n" +
+                    "\n" +
+                    "        s2[i] = '\\0';\n" +
+                    "        printf(\"String s2: %s\", s2);\n" +
+                    "        break;\n" +
+                    "\n" +
+                    "    case 2:\n" +
+                    "\n" +
+                    "        for(i=0; s1[i]!='\\0'; ++i)\n" +
+                    "        {\n" +
+                    "            if(s1[i]=='a' || s1[i]=='e' || s1[i]=='i' ||\n" +
+                    "            s1[i]=='o' || s1[i]=='u' || s1[i]=='A' ||\n" +
+                    "            s1[i]=='E' || s1[i]=='I' || s1[i]=='O' ||\n" +
+                    "            s1[i]=='U')\n" +
+                    "            {\n" +
+                    "                ++vowels;\n" +
+                    "            }\n" +
+                    "            else if((s1[i]>='a'&& s1[i]<='z') || (s1[i]>='A'&& s1[i]<='Z'))\n" +
+                    "            {\n" +
+                    "                ++consonants;\n" +
+                    "            }\n" +
+                    "        }\n" +
+                    "        printf(\"Vowels: %d\",vowels);\n" +
+                    "        printf(\"\\nConsonants: %d\",consonants);\n" +
+                    "    }\n" +
+                    "}\n");
+        }
+
         if("P11".equals(program_num)) {
-            display_program_number.setText("PROGRAM 6");
+            display_program_number.setText("PROGRAM 11");
             display.setText("#include <stdio.h>\n" +
                     "\n" +
                     "int fact(int n)\n" +
@@ -255,6 +304,10 @@ public class Display_program extends Activity {
                 }
                 else if("P5".equals(program_num)) {
                     Intent intent = new Intent(Display_program.this, Console_taylors.class);
+                    startActivity(intent);
+                }
+                else if("P9".equals(program_num)) {
+                    Intent intent = new Intent(Display_program.this, Console_p9.class);
                     startActivity(intent);
                 }
                 else if("P11".equals(program_num)) {
