@@ -1,6 +1,8 @@
 package com.android.understandc;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -102,6 +104,46 @@ public class Display_program extends Activity {
                     "    else\n" +
                     "        printf(\"%d is not a palindrome.\", originalInteger);\n" +
                     "    \n" +
+                    "}");
+        }
+
+        if("P3".equals(program_num)) {
+            display_program_number.setText("PROGRAM 3");
+            display.setText("3.a) Calculating the square root\n" +
+                    "\n" +
+                    "#include<stdio.h>\n" +
+                    "\n" +
+                    "void main()\n" +
+                    "{\n" +
+                    "\tint n;\n" +
+                    "\tfloat temp,sqt;\n" +
+                    "\t\n" +
+                    "\tprintf(\"Enter d no\");\n" +
+                    "\tscanf(\"%d\",&n);\n" +
+                    "\n" +
+                    "\tsqt=n/2;\n" +
+                    "\ttemp=0;\n" +
+                    "\twhile(sqt!=temp)\n" +
+                    "\t{\n" +
+                    "\t\ttemp=sqt;\n" +
+                    "\t\tsqt=(n/temp+temp)/2;\n" +
+                    "\t}\n" +
+                    "\n" +
+                    "\tprintf(\"the square root of %d is%f\",n,sqt);\n" +
+                    "}\n" +
+                    "\n" +
+                    "3.b) Checking leap year \n" +
+                    "\n" +
+                    "#include <stdio.h>\n" +
+                    "\n" +
+                    "void main() {\n" +
+                    "   int year;\n" +
+                    "   year = 2016;\n" +
+                    "\n" +
+                    "   if (((year % 4 == 0) && (year % 100!= 0)) || (year%400 == 0))\n" +
+                    "      printf(\"%d is a leap year\", year);\n" +
+                    "   else\n" +
+                    "      printf(\"%d is not a leap year\", year);\n" +
                     "}");
         }
 
@@ -336,6 +378,24 @@ public class Display_program extends Activity {
                 else if("P2".equals(program_num)) {
                     Intent intent = new Intent(Display_program.this, Console_palindrome.class);
                     startActivity(intent);
+                }
+                else if("P3".equals(program_num)) {
+                    new AlertDialog.Builder(Display_program.this)
+                            .setMessage("Which one?")
+                            .setCancelable(false)
+                            .setPositiveButton("3a", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    Intent intent = new Intent(Display_program.this, Console_sqrt.class);
+                                    startActivity(intent);
+                                }
+                            })
+                            .setNegativeButton("3b", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    Intent intent = new Intent(Display_program.this, Console_leap.class);
+                                    startActivity(intent);
+                                }
+                            } )
+                            .show();
                 }
                 else if("P1".equals(program_num)) {
                     Intent intent = new Intent(Display_program.this, Console_roots.class);
