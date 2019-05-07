@@ -248,6 +248,59 @@ public class Display_program extends Activity {
                     "\t}\n" +
                     "}");
         }
+        if("P7".equals(program_num)){
+            display_program_number.setText("PROGRAM 7");
+            display.setText("#include<stdio.h>\n" +
+                    "int main()\n" +
+                    "{\n" +
+                    "  int m, n, p, q, c, d, k, sum = 0;\n" +
+                    "  int first[10][10], second[10][10], multiply[10][10];\n" +
+                    "\n" +
+                    "  printf(\"Enter number of rows and columns of first matrix\\n\");\n" +
+                    "  scanf(\"%d%d\", &m, &n);\n" +
+                    "  \n" +
+                    "  printf(\"Enter number of rows and columns of second matrix\\n\");\n" +
+                    "  scanf(\"%d%d\", &p, &q);\n" +
+                    "\n" +
+                    "  if (n != p)\n" +
+                    "    printf(\"The matrices can't be multiplied with each other.\\n\");\n" +
+                    "  else\n" +
+                    "  {\n" +
+                    "  \tprintf(\"Enter elements of first matrix\\n\");\n" +
+                    "\n" +
+                    "  \tfor (c = 0; c < m; c++)\n" +
+                    "    \tfor (d = 0; d < n; d++)\n" +
+                    "    \t\tscanf(\"%d\", &first[c][d]);\n" +
+                    "      \n" +
+                    "    printf(\"Enter elements of second matrix\\n\");\n" +
+                    "\n" +
+                    "    for (c = 0; c < p; c++)\n" +
+                    "      for (d = 0; d < q; d++)\n" +
+                    "        scanf(\"%d\", &second[c][d]);\n" +
+                    "\n" +
+                    "    for (c = 0; c < m; c++) {\n" +
+                    "      for (d = 0; d < q; d++) {\n" +
+                    "        for (k = 0; k < p; k++) {\n" +
+                    "          sum = sum + first[c][k]*second[k][d];\n" +
+                    "        }\n" +
+                    "        multiply[c][d] = sum;\n" +
+                    "        sum = 0;\n" +
+                    "      }\n" +
+                    "    }\n" +
+                    "\n" +
+                    "    printf(\"Product of the matrices:\\n\");\n" +
+                    "\n" +
+                    "    for (c = 0; c < m; c++) {\n" +
+                    "      for (d = 0; d < q; d++)\n" +
+                    "        printf(\"%d\\t\", multiply[c][d]);\n" +
+                    "\n" +
+                    "      printf(\"\\n\");\n" +
+                    "    }\n" +
+                    "  }\n" +
+                    "\n" +
+                    "  return 0;\n" +
+                    "}");
+        }
 
         if("P8".equals(program_num)) {
             display_program_number.setText("PROGRAM 8");
@@ -341,6 +394,67 @@ public class Display_program extends Activity {
                     "}\n");
         }
 
+        if("P10".equals(program_num)) {
+            display_program_number.setText("PROGRAM 10");
+            display.setText("10) a. Right shift operation\n" +
+                    "\n" +
+                    "#include <stdio.h>\n" +
+                    "\n" +
+                    "int rightShift(int num, int x)\n" +
+                    "{\n" +
+                    "    num = (num>>x);\n" +
+                    "    return num;\n" +
+                    "\n" +
+                    "}\n" +
+                    "void main()\n" +
+                    "{\n" +
+                    "    unsigned int onum, num, x;\n" +
+                    "\n" +
+                    "    printf(\"Enter the number: \");\n" +
+                    "    scanf(\"%d\", &num);\n" +
+                    "\n" +
+                    "    printf(\"Enter the num of steps: \");\n" +
+                    "    scanf(\"%d\", &x);\n" +
+                    "\n" +
+                    "    onum=num;\n" +
+                    "\n" +
+                    "    num=rightShift(num, x);\n" +
+                    "    printf(\"\\nValue of num = %d after right shifting %d times: %d\",onum, x, num);\n" +
+                    "}\n" +
+                    "\n" +
+                    "10) b. Checking the number is prime or not\n" +
+                    "\n" +
+                    "#include <stdio.h>\n" +
+                    "\n" +
+                    "int isprime(int num){\n" +
+                    "    int i;\n" +
+                    "    for(i = 2; i <= num/2; ++i)\n" +
+                    "    {\n" +
+                    "        if(num%i == 0)\n" +
+                    "        {\n" +
+                    "            return 0;\n" +
+                    "        }\n" +
+                    "    }\n" +
+                    "    return 1;\n" +
+                    "}\n" +
+                    "\n" +
+                    "void main()\n" +
+                    "{\n" +
+                    "    int n, flag;\n" +
+                    "\n" +
+                    "    printf(\"Enter a positive integer: \");\n" +
+                    "    scanf(\"%d\", &n);\n" +
+                    "\n" +
+                    "    flag=isprime(n);\n" +
+                    "\n" +
+                    "    if (flag == 1)\n" +
+                    "        printf(\"%d is a prime number.\", n);\n" +
+                    "    else\n" +
+                    "        printf(\"%d is not a prime number.\", n);\n" +
+                    "}\n" +
+                    "\n");
+        }
+
         if("P11".equals(program_num)) {
             display_program_number.setText("PROGRAM 11");
             display.setText("#include <stdio.h>\n" +
@@ -409,6 +523,10 @@ public class Display_program extends Activity {
                     Intent intent = new Intent(Display_program.this, Console_taylors.class);
                     startActivity(intent);
                 }
+                else if("P7".equals(program_num)) {
+                    Intent intent = new Intent(Display_program.this, Console_matmul.class);
+                    startActivity(intent);
+                }
                 else if("P8".equals(program_num)) {
                     Intent intent = new Intent(Display_program.this, Console_binary.class);
                     startActivity(intent);
@@ -416,6 +534,24 @@ public class Display_program extends Activity {
                 else if("P9".equals(program_num)) {
                     Intent intent = new Intent(Display_program.this, Console_p9.class);
                     startActivity(intent);
+                }
+                else if("P10".equals(program_num)) {
+                    new AlertDialog.Builder(Display_program.this)
+                            .setMessage("Which one?")
+                            .setCancelable(false)
+                            .setPositiveButton("10a", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    Intent intent = new Intent(Display_program.this, Console_rf.class);
+                                    startActivity(intent);
+                                }
+                            })
+                            .setNegativeButton("10b", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    Intent intent = new Intent(Display_program.this, Console_prime.class);
+                                    startActivity(intent);
+                                }
+                            } )
+                            .show();
                 }
                 else if("P11".equals(program_num)) {
                     Intent intent = new Intent(Display_program.this, Console_ncr.class);
